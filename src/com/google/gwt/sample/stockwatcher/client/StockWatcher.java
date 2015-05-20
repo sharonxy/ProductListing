@@ -24,6 +24,7 @@ import java.util.Date;
 
     public class StockWatcher implements EntryPoint {
 
+    	jaksfjawejfawkef//for conflict
   private static final int REFRESH_INTERVAL = 5000; // ms
   private VerticalPanel mainPanel = new VerticalPanel();
   private FlexTable stocksFlexTable = new FlexTable();
