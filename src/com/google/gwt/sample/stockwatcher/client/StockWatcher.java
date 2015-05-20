@@ -24,7 +24,6 @@ import java.util.Date;
 
     public class StockWatcher implements EntryPoint {
 
-    aksdfjasdlkfj //for conflict
   private static final int REFRESH_INTERVAL = 5000; // ms
   private VerticalPanel mainPanel = new VerticalPanel();
   private FlexTable stocksFlexTable = new FlexTable();
@@ -51,7 +50,7 @@ import java.util.Date;
     stocksFlexTable.getCellFormatter().addStyleName(0, 2, "watchListNumericColumn");
     stocksFlexTable.getCellFormatter().addStyleName(0, 3, "watchListRemoveColumn");
     stocksFlexTable.setCellPadding(6);
-    
+
  // Assemble Add Stock panel.
     addPanel.add(newSymbolTextBox);
     addPanel.add(addStockButton);
@@ -75,8 +74,8 @@ import java.util.Date;
         refreshWatchList();
       }
     };
-    refreshTimer.scheduleRepeating(REFRESH_INTERVAL);    
-    
+    refreshTimer.scheduleRepeating(REFRESH_INTERVAL);
+
         // Listen for mouse events on the Add button.
     addStockButton.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
@@ -92,7 +91,7 @@ import java.util.Date;
         }
       }
     });
-    
+
       }
 
       /**
@@ -102,7 +101,7 @@ import java.util.Date;
   private void addStock() {
 	    final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
 	    newSymbolTextBox.setFocus(true);
-	    
+
 	    // Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
 	    if (!symbol.matches("^[0-9A-Z&#92;&#92;.]{1,10}$")) {
 	      Window.alert("'" + symbol + "' is not a valid symbol.");
@@ -115,7 +114,7 @@ import java.util.Date;
 	    // Don't add the stock if it's already in the table.
 	    if (stocks.contains(symbol))
 	      return;
-	    
+
 	 // Add the stock to the table.
 	    int row = stocksFlexTable.getRowCount();
 	    stocks.add(symbol);
@@ -124,7 +123,7 @@ import java.util.Date;
 	    stocksFlexTable.getCellFormatter().addStyleName(row, 1, "watchListNumericColumn");
 	    stocksFlexTable.getCellFormatter().addStyleName(row, 2, "watchListNumericColumn");
 	    stocksFlexTable.getCellFormatter().addStyleName(row, 3, "watchListRemoveColumn");
-	    
+
 	 // Add a button to remove this stock from the table.
 	    Button removeStockButton = new Button("x");
 	    removeStockButton.addStyleDependentName("remove");
@@ -136,11 +135,11 @@ import java.util.Date;
 	      }
 	    });
 	    stocksFlexTable.setWidget(row, 3, removeStockButton);
-	    
+
 	    // TODO Get the stock price.
 	    refreshWatchList();
 	}
-  
+
   /**
    * Generate random stock prices.
    */
@@ -159,7 +158,7 @@ import java.util.Date;
 
    updateTable(prices);
   }
-  
+
   /**
    * Update the Price and Change fields all the rows in the stock table.
    *
@@ -173,10 +172,10 @@ import java.util.Date;
     // Display timestamp showing last refresh.
     DateTimeFormat dateFormat = DateTimeFormat.getFormat(
       DateTimeFormat.PredefinedFormat.DATE_TIME_MEDIUM);
-    lastUpdatedLabel.setText("Last update : " 
+    lastUpdatedLabel.setText("Last update : "
       + dateFormat.format(new Date()));
   }
-  
+
   /**
    * Update a single row in the stock table.
    *
